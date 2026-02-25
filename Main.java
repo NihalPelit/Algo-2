@@ -9,6 +9,9 @@ public class Main {
         s.put("Muş",7);
 
         s.displayAll();
+        s.delete("İstanbul");
+        s.displayAll();
+        s.delete("mersin");
 
     }
 }

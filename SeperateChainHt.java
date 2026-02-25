@@ -43,6 +43,48 @@ public class SeperateChainHt {
 
     }
 
+    /*public Node searchItem(String key){
+        int h= hash(key);
+
+        if(list[h]==null){
+
+        }
+    }*/
+
+    public void delete(String item){
+
+        int h=hash(item);
+
+        if(list[h]==null){ //if list is empty
+            System.out.println("There is no such an item called "+ item);
+        }
+        else{ //if list is not empty
+            Node pre=list[h];
+            Node target= pre.next;
+
+            if(pre.key.equals(item)){ //if head is target
+                pre=null;
+                list[h]=target;
+            }
+            else{ //if head is not target
+                while(target!=null&& !target.key.equals(item)){ //until find the target
+                    pre=pre.next;
+                    target=target.next;
+                    
+                }
+                if(target==null){ //if all nodes are visited and target  is not found
+                    System.out.println("There is no such an item called "+ item);
+                    return; //to quit from method
+                }
+                
+                pre.next=target.next; //if target is found
+                target=null;
+            }
+
+        }
+
+    }
+
 
 }
 
